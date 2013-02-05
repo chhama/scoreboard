@@ -1,6 +1,13 @@
 #!/usr/bin/perl
 use warnings;
 use POSIX;
+use LWP::Simple; 
+
+$website_content = get(\"http://www.espncricinfo.com/ci/engine/match/593030.html?innings=3;page=1;view=commentary;wrappertype=live\"); 
+open FILEHANDLE, \">inn1_1.txt\"; 
+print FILEHANDLE $website_content; 
+close FILEHANDLE;
+
 print "****First Innings of first team****\n";
 scorecard("inn1_1.txt");
 print "\n****First Innings of second team****\n";
